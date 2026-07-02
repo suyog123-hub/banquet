@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .serializer import BookingmodelSerializer
 from .models import Bookingmodel
 from rest_framework.views import  APIView
-from config.permission import AdminGetOrPostAll
+from config.permission import SuperAdminAll_StaffGetPost_userPost
 from config.response import *
 from rest_framework import serializers
 from config.pagination import Detailpage
@@ -11,7 +11,7 @@ from rest_framework.permissions import AllowAny
 
 class Bookingview(APIView):
     pagination_class = Detailpage
-    permission_classes =[AllowAny]
+    permission_classes =[SuperAdminAll_StaffGetPost_userPost]
     def get(self,request):
         content = Bookingmodel.objects.all().order_by('id')
         paginator = self.pagination_class()
