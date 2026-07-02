@@ -15,7 +15,7 @@ class RegisterUserAPIView(APIView):
                 otp = generate_otp()
                 store_otp(user.id, otp, purpose="email_verification")
                 send_otp_email(user.email, otp)
-                return created_response({"data":serializer.data, "user_id":user.id})
+                return created_response(data={"data":serializer.data, "user_id":user.id})
             return validation_error_response(serializer.errors)
         except Exception as e:
             return server_error_response(str(e))
