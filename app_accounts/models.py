@@ -53,7 +53,6 @@ class User(AbstractUser, Base):
         ("staff", "Staff"),
         ("customer", "Customer"),
     ], default="customer")
-
     def __str__(self):
         return self.username
     

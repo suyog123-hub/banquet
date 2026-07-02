@@ -10,10 +10,12 @@ from .models import contact
 from config.response import *
 from config.pagination import Detailpage
 from config.permission import AdminGetOrPostAll
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
 # Create your views here.
 
 class contactview(APIView):
-    permission_classes =[AdminGetOrPostAll]
+    permission_classes =[ AdminGetOrPostAll]
     pagination_class = Detailpage
     def get(self, request):
         
@@ -62,3 +64,4 @@ class contactview(APIView):
             
         except Exception as e:
             return server_error_response()
+
