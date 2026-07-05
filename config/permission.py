@@ -29,9 +29,6 @@ class AdminGetOrPostAll(BasePermission):
                  },status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             
 
-
-
-
 class SuperAdminAll_StaffGetPost_userPost(BasePermission):
     def has_permission(self, request, view):
         user = request.user
