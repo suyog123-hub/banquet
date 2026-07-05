@@ -45,6 +45,7 @@ urlpatterns = [
     path('contact/',include('app_contact.urls')),
     path('organization/',include('app_core.urls')),
     path("booking/",include('app_booking.urls')),
+    path("blog/",include('app_blog.urls')),
 
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

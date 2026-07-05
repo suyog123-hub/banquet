@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'app_core',
     'app_contact',
     'app_booking',
+    'app_blog',
     'app_testinomial',
     'drf_yasg',
 ]
