@@ -9,7 +9,7 @@ class BlogCategory(Base):
         return self.title
     
 
-class content(Base):
+class Content(Base):
     title = models.ForeignKey(BlogCategory,on_delete=models.CASCADE,null=True)
     heading = models.CharField(max_length=200,null=True)
     date = models.DateField()
