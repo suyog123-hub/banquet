@@ -63,7 +63,6 @@ class RegisterUserAPIView(APIView):
                 user = serializer.save()
                 otp = generate_otp()
                 store_otp(user.id, otp, purpose="email_verification")
-<<<<<<< HEAD
                 # for sending email in background using daemon
                 # send_otp_email(user.email, otp)
                 thread = Thread(
@@ -73,10 +72,6 @@ class RegisterUserAPIView(APIView):
                 )
                 thread.start()
                 return created_response({"data":serializer.data, "user_id":user.id})
-=======
-                send_otp_email(user.email, otp)
-                return created_response(data={"data":serializer.data, "user_id":user.id})
->>>>>>> 898860fa777b4cd59c954fa053b1a79a143d3c09
             return validation_error_response(serializer.errors)
         except Exception as e:
             return server_error_response(str(e))
