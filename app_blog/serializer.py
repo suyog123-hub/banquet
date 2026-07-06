@@ -1,4 +1,4 @@
-from .models import BlogCategory ,content
+from .models import BlogCategory ,Content
 from rest_framework import serializers
 from datetime import timezone
 class CategorySerializers(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class CategorySerializers(serializers.ModelSerializer):
 
 class Contentserializer(serializers.ModelSerializer):
     class Meta:
-        model = content
+        model = Content
         fields ="__all__"
 
     def validate_heading(self,value):
