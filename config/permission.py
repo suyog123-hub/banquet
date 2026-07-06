@@ -2,7 +2,7 @@
 from rest_framework.permissions import BasePermission
 from rest_framework.response import Response
 from rest_framework import status
-
+from config.response import server_error_response
 
 
 class AdminGetOrPostAll(BasePermission):
@@ -27,6 +27,7 @@ class AdminGetOrPostAll(BasePermission):
                  return Response ({
                       'message' : str(e)
                  },status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+<<<<<<< HEAD
 
 class RoleBasedUserPermission(BasePermission):
     """
@@ -68,3 +69,24 @@ class RoleBasedUserPermission(BasePermission):
             return obj == request.user
 
         return False
+=======
+            
+
+class SuperAdminAll_StaffGetPost_userPost(BasePermission):
+    def has_permission(self, request, view):
+        user = request.user
+
+        if not user.is_authenticated:
+            return False
+        if user.is_superuser:
+            return True
+        
+        if user.is_staff:
+            return request.method in ['GET', 'POST']
+        
+        if user.is_authenticated:
+            return request.method == 'POST'
+        
+
+        return False
+>>>>>>> 898860fa777b4cd59c954fa053b1a79a143d3c09

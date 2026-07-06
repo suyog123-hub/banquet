@@ -61,9 +61,7 @@ class User(AbstractUser, Base):
         ("staff", "Staff"),
         ("user", "User"),
     ], default="user")
-    
-    objects = UserManager()
-    
+
     def __str__(self):
         return self.username
     
