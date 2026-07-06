@@ -34,3 +34,19 @@
 
 ### Security
 
+## [1.0.3]- 2026-07-05
+
+### Added
+
+- staff user added
+- resend otm email added
+- otp throttle added
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
