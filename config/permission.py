@@ -27,6 +27,25 @@ class AdminGetOrPostAll(BasePermission):
                  return Response ({
                       'message' : str(e)
                  },status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
+
+class SuperAdminAll_StaffGetPost_userPost(BasePermission):
+    def has_permission(self, request, view):
+        user = request.user
+
+        if not user.is_authenticated:
+            return False
+        if user.is_superuser:
+            return True
+        
+        if user.is_staff:
+            return request.method in ['GET', 'POST']
+        
+        if user.is_authenticated:
+            return request.method == 'POST'
+        
+        return False
+
 
 class RoleBasedUserPermission(BasePermission):
     """
