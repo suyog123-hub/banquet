@@ -7,7 +7,9 @@ from config.response import *
 from rest_framework import serializers
 from config.pagination import Detailpage
 from rest_framework.permissions import AllowAny
+from rest_framework import status
 # Create your views here.
+
 
 class Bookingview(APIView):
     pagination_class = Detailpage
@@ -27,5 +29,7 @@ class Bookingview(APIView):
                 serializer.save()
                 return success_response("Data post successfully",serializer.data)
             return validation_error_response(serializer.errors)
-        except Exception:
-            return server_error_response
+        except Exception as e:
+            return Response({
+                "message":str(e)
+            },status=status.HTTP_500_INTERNAL_SERVER_ERROR)

@@ -7,8 +7,6 @@ class BlogCategory(Base):
 
     def __str__(self):
         return self.title
-    
-
 class Content(Base):
     title = models.ForeignKey(BlogCategory,on_delete=models.CASCADE,null=True)
     heading = models.CharField(max_length=200,null=True)
