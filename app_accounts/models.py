@@ -20,33 +20,44 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, email=None, password=None, **extra_fields):
+    def create_admin(self, creator, username, email=None, password=None, **extra_fields):
         """
-        Create and return a superuser with role 'admin'.
+        Create and return an admin user.
+        Only superusers can create admins.
         """
+
         email = self.normalize_email(email)
         extra_fields.setdefault("role", "admin")
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
-        return self.create_user(username, email, password, **extra_fields)
 
-    def create_admin(self, creator, username, email=None, password=None, **extra_fields):
-        """
-        Create and return an admin (staff) user.
-        Only superusers can create admins.
-        """
-        if not creator.role == "admin":
-            raise ValueError("Only superusers can create admins")
-        email = self.normalize_email(email)
-        extra_fields.setdefault("role", "staff")
-        extra_fields.setdefault("is_staff", False)
         user = self.model(username=username, email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
+
+    def create_staff(self, creator, username, email=None, password=None, **extra_fields):
+        """
+        Create and return a staff user.
+        Only superusers can create staff.
+        """
+        if not creator.is_superuser:
+            raise ValueError("Only superusers can create staff")
+
+        email = self.normalize_email(email)
+        extra_fields.setdefault("role", "staff")
+        extra_fields.setdefault("created_by", creator)
+        extra_fields.setdefault("is_staff", True)
+
+        user = self.model(username=username, email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+
 class User(AbstractUser, Base):
-    email = models.EmailField(unique=True)   # make email unique
+    email = models.EmailField(unique=True)   
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     profile_picture = models.ImageField(upload_to="profiles/", blank=True, null=True)
     organization = models.ForeignKey(
@@ -61,6 +72,8 @@ class User(AbstractUser, Base):
         ("staff", "Staff"),
         ("user", "User"),
     ], default="user")
+    # this tells django to use our own custom manager
+    objects = UserManager()
 
     def __str__(self):
         return self.username

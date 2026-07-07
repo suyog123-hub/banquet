@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from config.response import server_error_response
 
-
 class AdminGetOrPostAll(BasePermission):
     """
     Custom permission:

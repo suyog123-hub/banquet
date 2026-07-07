@@ -45,8 +45,21 @@
 
 ### Deprecated
 
+
+## [1.0.4] - 2026-07-07
+
+### Added
+- user validation added 
+- Simple jwt configuration added in settings
+- 
+
+### Changed
+
+### Deprecated
+
 ### Removed
 
 ### Fixed
 
 ### Security
+
