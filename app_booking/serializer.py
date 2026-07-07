@@ -9,7 +9,6 @@ class BookingmodelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bookingmodel
         fields = '__all__'
-        read_only_fields = ['id']
     
     def validate_name(self, value):
         """Validate name: at least 2 characters, letters only."""
