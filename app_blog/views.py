@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import  Content , BlogCategory
 from rest_framework.views import APIView 
 from rest_framework import viewsets
-from config.permission import BasePermission
+from config.permission import  AdminStaffAll_UserGet
 from config.pagination import Detailpage
 from .serializer import  Contentserializer, CategorySerializers  
 from rest_framework.response import Response
@@ -14,7 +14,6 @@ from config.response import (
     error_response,
     server_error_response,
 )
-
 class CategoryView(viewsets.ModelViewSet):
     queryset = BlogCategory.objects.all()
     serializer_class = CategorySerializers
@@ -22,7 +21,7 @@ class CategoryView(viewsets.ModelViewSet):
 
 class ContentView(APIView):
     pagination_class = Detailpage
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [AdminStaffAll_UserGet]
     
     def get(self, request):
         try:
@@ -39,7 +38,7 @@ class ContentView(APIView):
 
     def post(self, request):
         try:
-            serializer = Contentserializer(data=request.data)
+            serializer = Contentserializer(data=request.data,context={"request":request})
             if serializer.is_valid():
                 serializer.save(user=request.user)
                 return success_response(
@@ -57,12 +56,7 @@ class ContentView(APIView):
     def put(self, request, pk): 
         try:
             content_instance = get_object_or_404(Content, id=pk)
-
-            if content_instance.user != request.user:
-                return Response({
-                    'success': False,
-                    'message': 'You are not authorized to edit this content'
-                }, status=status.HTTP_403_FORBIDDEN)
+            print("hello")
             serializer =Contentserializer(content_instance, data=request.data)
             
             if serializer.is_valid():
@@ -84,15 +78,8 @@ class ContentView(APIView):
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
     def delete(self, request, pk):
-        """Delete a content (only author can delete)"""
         try:
             content_instance = get_object_or_404(Content, id=pk)
-
-            if content_instance.user != request.user:
-                return Response({
-                    'success': False,
-                    'message': 'You are not authorized to delete this content'
-                }, status=status.HTTP_403_FORBIDDEN)
             content_instance.delete()
             
             return Response({
@@ -104,3 +91,9 @@ class ContentView(APIView):
             return Response({
                 "message": str(e)
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+
+    def create(self, validated_data):
+        validated_data['user'] = self.context["request"].user
+        validated_data['created_by'] = self.context["request"].user
+        return super().create(validated_data)
