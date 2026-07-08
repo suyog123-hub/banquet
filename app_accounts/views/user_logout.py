@@ -19,6 +19,7 @@ from config.response import (
     server_error_response,
     not_found_response
 )
+from config.logging import *
 
 class LogoutAPIView(APIView):
     authentication_classes = JWTAuthentication
@@ -44,4 +45,5 @@ class LogoutAPIView(APIView):
             )
             return response
         except Exception as e:
+            logger.error(str(e), exc_info=True)
             return server_error_response()

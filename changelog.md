@@ -43,10 +43,20 @@
 - otp throttle added
 ### Changed
 
-### Deprecated
+## [1.0.3] - 2026-07-08
+
+### Added
+
+- logger added in settings file
+- JWT settings configurations added in settings file
+- account temporary lockouts added in loginview
+
+### Changed
+- create_admin changed to create_staff in user models
+
 
 ### Removed
-
+- TestView removed
 ### Fixed
 
 ### Security

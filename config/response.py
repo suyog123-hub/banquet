@@ -25,7 +25,7 @@ def created_response(message="Resource created", data=None, code=201):
 def error_response(message="Bad request", code=400):
     return custom_response(False, message, None, status_code=code)
 
-def validation_error_response(errors, message="Validation failed", code=422):
+def validation_error_response(errors, message="Validation failed", code=400):
     return custom_response(False, message, errors, status_code=code)
 
 def unauthorized_response(message="Unauthorized", code=401):

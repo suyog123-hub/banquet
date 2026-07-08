@@ -40,7 +40,7 @@ class RefreshTokenAPIView(APIView):
                     )
 
             except (TokenError, InvalidToken):
-                return forbidden_response(essage="Invalid or expired refresh token")
+                return forbidden_response(message="Invalid or expired refresh token")
 
         except Exception as e:
             return server_error_response()

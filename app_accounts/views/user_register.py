@@ -1,9 +1,9 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from app_accounts.serializers.user_register_serializer import UserRegistrationSerializer
 from config.utils import generate_otp, store_otp, send_otp_email
 from django.core.mail import send_mail
-from app_accounts.throttles import OTPResendThrottle
+from app_accounts.throttles import OTPResendThrottle, RegisterViewThrottle
 from app_accounts.models import User
 from threading import Thread
 from django.conf import settings
@@ -15,14 +15,17 @@ from config.response import (
     not_found_response,
     forbidden_response
 )
+from config.logging import *
 
 class StaffRegisterAPIView(APIView):
     permission_classes = [IsAuthenticated]
-
+    throttle_classes = [RegisterViewThrottle]
     def post(self, request):
         try:
             if not request.user.is_superuser:
-                return forbidden_response("Only superusers can create staff", 403)
+                return forbidden_response(message="Only superusers can create staff", code=403)
+            data = request.data.copy()
+            data['role']="staff"
             serializer = UserRegistrationSerializer(data=request.data)
             if serializer.is_valid():
                 validated_data = serializer.validated_data
@@ -48,14 +51,17 @@ class StaffRegisterAPIView(APIView):
                 )
                 thread.start()
 
-                return created_response({"user_id": user.id, "data": serializer.data}, "Staff registered successfully")
-            return validation_error_response(serializer.errors)
+                return created_response(data={"user_id": user.id, "data": serializer.data}, message="Staff registered successfully")
+            return validation_error_response(errors=serializer.errors, code=400)
         except Exception as e:
-            return server_error_response(str(e))
+            logger.error(str(e), exc_info=True)
+            return server_error_response()
 
 
 
 class RegisterUserAPIView(APIView):
+    permission_classes = [AllowAny]
+    throttle_classes = [RegisterViewThrottle]
     def post(self, request):
         try:
             serializer = UserRegistrationSerializer(data = request.data)
@@ -71,33 +77,37 @@ class RegisterUserAPIView(APIView):
                     daemon=True
                 )
                 thread.start()
-                return created_response({"data":serializer.data, "user_id":user.id})
-            return validation_error_response(serializer.errors)
+                return created_response(data={"data":serializer.data, "user_id":user.id}, message="User account has been created successfully !!!")
+            return validation_error_response(errors=serializer.errors, code=400)
         except Exception as e:
-            return server_error_response(str(e))
+            logger.error(str(e), exc_info=True)
+            return server_error_response()
         
         
 class ResendOTPAPIView(APIView):
     throttle_classes = [OTPResendThrottle]
 
     def post(self, request):
-        user_id = request.data.get("user_id")
-        if not user_id:
-            return validation_error_response({"user_id": "User ID is required"})
-
         try:
-            user = User.objects.get(id=user_id)
-        except User.DoesNotExist:
-            return not_found_response(message="User not found", code=404)
+            user_id = request.data.get("user_id")
+            if not user_id:
+                return error_response(message="User ID is required")
+            try:
+                user = User.objects.get(id=user_id)
+            except User.DoesNotExist:
+                return not_found_response(message="User not found")
 
-        otp = generate_otp()
-        store_otp(user.id, otp, purpose="email_verification")
-        thread = Thread(
-                    target=send_otp_email,
-                    args=(user.email, otp),
-                    daemon=True
-                )
-        thread.start()
+            otp = generate_otp()
+            store_otp(user.id, otp, purpose="email_verification")
+            thread = Thread(
+                        target=send_otp_email,
+                        args=(user.email, otp),
+                        daemon=True
+                    )
+            thread.start()
 
-        return created_response({"message": "New OTP sent successfully"})
+            return created_response(message="New OTP sent successfully")
+        except Exception as e:
+            logger.error(str(e), exc_info=True)
+            return server_error_response()
     

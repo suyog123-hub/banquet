@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,11 +49,33 @@ INSTALLED_APPS = [
     'app_testinomial',
     'drf_yasg',
 ]
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+# jwt settings
+SIMPLE_JWT = {
+    # Access token lifetime (default is 5 minutes)
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=2),   # now 2 hours
+
+    # Refresh token lifetime (default is 1 day)
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=14),  # now 14 days
+
+    # Optional: blacklist old refresh tokens after rotation
+    "BLACKLIST_AFTER_ROTATION": True,
+
+    # Custom settings for cookies
+    "AUTH_COOKIE": "access_token",             # Name of access token cookie
+    "AUTH_COOKIE_REFRESH": "refresh_token",    # Name of refresh token cookie
+    "AUTH_COOKIE_SECURE": True,                # Only send over HTTPS
+    "AUTH_COOKIE_HTTP_ONLY": True,             # Not accessible via JavaScript
+    "AUTH_COOKIE_PATH": "/",                   # Cookie path
+    "AUTH_COOKIE_SAMESITE": "Strict",          # CSRF protection
+}
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -146,3 +169,37 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+
+#logger
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'timestamp': {
+            'format': '{asctime} {levelname} {message} {lineno} ',
+            'style': '{',
+
+        },
+
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+            'formatter': 'timestamp'
+        },
+
+
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+    },
+}
