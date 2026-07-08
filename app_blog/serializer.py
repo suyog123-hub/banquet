@@ -17,6 +17,10 @@ class Contentserializer(serializers.ModelSerializer):
     class Meta:
         model = Content
         fields ="__all__"
+        extra_kwargs = {
+            "user": {"read_only":True },
+        }
+    
 
     def validate_heading(self,value):
         if len(value) <2 :
@@ -26,6 +30,12 @@ class Contentserializer(serializers.ModelSerializer):
     def validate_content(self, value):
         if len(value)< 10 :
             raise serializers.ValidationError("please enter  the more content")
+        
+
+    def create(self, validated_data):
+        validated_data['user'] = self.context["request"].user
+        validated_data['created_by'] = self.context["request"].user
+        return super().create(validated_data)
 
         
 

@@ -1,13 +1,13 @@
 from django.db import models
 from config.basemodel import Base
-
-
+from django.conf import settings
 class BlogCategory(Base):
     title=models.CharField(max_length=200)
 
     def __str__(self):
         return self.title
 class Content(Base):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='blog_content')
     title = models.ForeignKey(BlogCategory,on_delete=models.CASCADE,null=True)
     heading = models.CharField(max_length=200,null=True)
     date = models.DateField()
