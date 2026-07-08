@@ -9,6 +9,9 @@ class BookingmodelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bookingmodel
         fields = '__all__'
+        extra_kwargs = {
+            "user": {"read_only":True },
+        }
     
     def validate_name(self, value):
         """Validate name: at least 2 characters, letters only."""
@@ -48,5 +51,7 @@ class BookingmodelSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Details must be at least 5 characters long.")
         return value
     
-    
-
+    def create(self, validated_data):
+        validated_data['user'] = self.context["request"].user
+        validated_data['created_by'] = self.context["request"].user
+        return super().create(validated_data)

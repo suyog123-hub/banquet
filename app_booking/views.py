@@ -23,9 +23,8 @@ class Bookingview(APIView):
     
     def post(self, request):
         try:
-            serializer = BookingmodelSerializer(data=request.data)
+            serializer = BookingmodelSerializer(data=request.data,context={"request":request})
             if serializer.is_valid():
-                print("suyog1")
                 serializer.save()
                 return success_response("Data post successfully",serializer.data)
             return validation_error_response(serializer.errors)

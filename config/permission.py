@@ -46,6 +46,15 @@ class SuperAdminAll_StaffGetPost_userPost(BasePermission):
         
         return False
 
+class AdminStaffAll_UserGet(BasePermission):
+    def has_permission(self, request, view):
+        user = request.user
+        if request.method in ["POST","PUT","DELETE"]:
+            if user.is_superuser or user.is_staff:
+                return True
+            return False
+        if request.method == "GET":
+            return True
 
 class RoleBasedUserPermission(BasePermission):
     """
