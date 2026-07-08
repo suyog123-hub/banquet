@@ -11,6 +11,7 @@ from config.response import(
     validation_error_response,
     server_error_response
 )
+from config.logging import *
 
 
 class UserListAPIView(APIView):
@@ -29,28 +30,34 @@ class UserListAPIView(APIView):
             serializer = UserSerializer(queryset, many=True)
             return success_response(data=serializer.data, message="User list retrieved successfully")
         except Exception as e:
-            return server_error_response(str(e))
+            logger.error(str(e), exc_info=True)
+            return server_error_response()
 
 
 class UserDetailAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self, user):
-        if user.role in ["admin", "superadmin"]:
-            return User.objects.all()
-        elif user.role == "staff":
-            return User.objects.filter(organization=user.organization)
-        else:
-            return User.objects.filter(id=user.id)
+        try:
+            if user.role in ["admin", "superadmin"]:
+                return User.objects.all()
+            elif user.role == "staff":
+                return User.objects.filter(organization=user.organization)
+            else:
+                return User.objects.filter(id=user.id)
+        except Exception as e:
+            logger.error(str(e), exc_info=True)
+            return server_error_response()
 
     def get(self, request, ref_id):
         try:
             queryset = self.get_queryset(request.user)
             obj = get_object_or_404(queryset, ref_id=ref_id)
             serializer = UserSerializer(obj)
-            return success_response(serializer.data, "User detail retrieved successfully")
+            return success_response(data=serializer.data, message="User detail retrieved successfully")
         except Exception as e:
-            return server_error_response(str(e))
+            logger.error(str(e), exc_info=True)
+            return server_error_response()
 
     def put(self, request, ref_id):
         try:
@@ -63,7 +70,8 @@ class UserDetailAPIView(APIView):
                 return success_response(data=serializer.data, message="User updated successfully")
             return validation_error_response(errors=serializer.errors)
         except Exception as e:
-            return server_error_response(str(e))
+            logger.error(str(e), exc_info=True)
+            return server_error_response()
 
     def delete(self, request, ref_id):
         try:
@@ -72,5 +80,6 @@ class UserDetailAPIView(APIView):
             obj.delete()
             return success_response(message="User deleted successfully", code=204)
         except Exception as e:
-            return server_error_response(str(e))
+            logger.error(str(e), exc_info=True)
+            return server_error_response()
 

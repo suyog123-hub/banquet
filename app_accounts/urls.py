@@ -3,7 +3,7 @@ from  app_accounts.views import (
     RegisterUserAPIView, VerifyEmailView, 
     StaffRegisterAPIView,ResendOTPAPIView,
     LoginAPIView, RefreshTokenAPIView, 
-    LogoutAPIView, TestVIew,
+    LogoutAPIView,
     RequestPasswordResetAPIView,
     VerifyPasswordResetOTPAPIView,
     ResetPasswordAPIView,
