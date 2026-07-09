@@ -22,16 +22,14 @@ class StaffRegisterAPIView(APIView):
     throttle_classes = [RegisterViewThrottle]
     def post(self, request):
         try:
-            if not request.user.is_superuser:
+            if not request.user.is_superuser==True:
                 return forbidden_response("Only superusers can create staff", 403)
             data = request.data.copy()
             # making a copy of request.data and enforcing role as staff for organization validation
             data['role'] = "staff"
             serializer = UserRegistrationSerializer(data=data)
             if serializer.is_valid():
-                validated_data = serializer.validated_data
-                validated_data.pop("confirm_password")
-                user = User.objects.create_staff(creator=request.user, **serializer.validated_data)
+                user = serializer.save()
                 # for sending emails
                 subject = "Thankyou Mail !!!"
                 message = f"""
