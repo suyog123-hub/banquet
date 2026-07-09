@@ -10,3 +10,4 @@ staticfiles/
 # Virtual environment
 venv/
 .env
+debug.log
