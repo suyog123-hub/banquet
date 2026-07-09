@@ -337,3 +337,111 @@ ZeroDivisionError: division by zero
 2026-07-08 15:16:30,473 INFO Watching for file changes with StatReloader 681 
 2026-07-08 15:16:44,510 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\wedding\settings.py changed, reloading. 265 
 2026-07-08 15:17:07,654 INFO Watching for file changes with StatReloader 681 
+2026-07-08 22:14:18,782 INFO Watching for file changes with StatReloader 681 
+2026-07-08 22:15:03,241 WARNING Unauthorized: /register/ 249 
+2026-07-08 22:15:03,242 WARNING "POST /register/ HTTP/1.1" 401 172 249 
+2026-07-08 22:15:59,652 WARNING Unauthorized: /register/ 249 
+2026-07-08 22:15:59,652 WARNING "POST /register/ HTTP/1.1" 401 172 249 
+2026-07-08 22:16:34,825 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\wedding\settings.py changed, reloading. 265 
+2026-07-08 22:16:36,402 INFO Watching for file changes with StatReloader 681 
+2026-07-08 22:16:38,207 WARNING Bad Request: /register/ 249 
+2026-07-08 22:16:38,208 WARNING "POST /register/ HTTP/1.1" 400 203 249 
+2026-07-08 22:16:52,699 ERROR 'ReturnDict' object has no attribute 'save' 85 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_register.py", line 71, in post
+    user.save()
+    ^^^^^^^^^
+AttributeError: 'ReturnDict' object has no attribute 'save'
+2026-07-08 22:16:52,702 ERROR Internal Server Error: /register/ 249 
+2026-07-08 22:16:52,703 ERROR "POST /register/ HTTP/1.1" 500 104 249 
+2026-07-08 22:18:23,809 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-08 22:18:26,005 INFO Watching for file changes with StatReloader 681 
+2026-07-08 22:18:36,143 INFO "POST /register/ HTTP/1.1" 201 268 249 
+2026-07-08 22:19:21,697 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-08 22:19:21,698 ERROR Internal Server Error: /login/ 249 
+2026-07-08 22:19:21,699 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-08 22:20:36,424 INFO "GET /admin/ HTTP/1.1" 200 16539 249 
+2026-07-08 22:20:36,850 WARNING Not Found: /favicon.ico 249 
+2026-07-08 22:20:36,851 WARNING "GET /favicon.ico HTTP/1.1" 404 6285 249 
+2026-07-08 22:20:39,139 INFO "GET /admin/app_accounts/user/ HTTP/1.1" 200 21012 249 
+2026-07-08 22:20:39,234 INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3342 249 
+2026-07-08 22:20:44,110 INFO "GET /admin/app_accounts/user/20/change/ HTTP/1.1" 200 30638 249 
+2026-07-08 22:20:44,172 INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3342 249 
+2026-07-08 22:21:35,203 INFO "POST /admin/app_accounts/user/20/change/ HTTP/1.1" 302 0 249 
+2026-07-08 22:21:35,249 INFO "GET /admin/app_accounts/user/ HTTP/1.1" 200 21214 249 
+2026-07-08 22:21:35,309 INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3342 249 
+2026-07-08 22:22:03,269 INFO "POST /login/ HTTP/1.1" 200 336 249 
+2026-07-08 22:37:50,040 INFO "POST /login/ HTTP/1.1" 200 335 249 
+2026-07-09 11:56:53,795 INFO Watching for file changes with StatReloader 681 
+2026-07-09 12:02:11,436 INFO Watching for file changes with StatReloader 681 
+2026-07-09 12:02:46,263 WARNING Bad Request: /register/ 249 
+2026-07-09 12:02:46,263 WARNING "POST /register/ HTTP/1.1" 400 203 249 
+2026-07-09 12:02:56,660 INFO "POST /register/ HTTP/1.1" 201 268 249 
+2026-07-09 12:03:14,289 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-09 12:03:14,290 ERROR Internal Server Error: /login/ 249 
+2026-07-09 12:03:14,291 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-09 12:04:03,582 WARNING Not Found: /api/student/ 249 
+2026-07-09 12:04:03,583 WARNING "GET /api/student/ HTTP/1.1" 404 6288 249 
+2026-07-09 12:04:03,780 WARNING Not Found: /favicon.ico 249 
+2026-07-09 12:04:03,780 WARNING "GET /favicon.ico HTTP/1.1" 404 6285 249 
+2026-07-09 12:04:08,037 WARNING Not Found: / 249 
+2026-07-09 12:04:08,038 WARNING "GET / HTTP/1.1" 404 6234 249 
+2026-07-09 12:04:16,100 INFO "GET /admin/ HTTP/1.1" 302 0 249 
+2026-07-09 12:04:16,287 INFO "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4084 249 
+2026-07-09 12:04:16,322 INFO "GET /static/admin/css/base.css HTTP/1.1" 304 0 249 
+2026-07-09 12:04:16,328 INFO "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0 249 
+2026-07-09 12:04:16,328 INFO "GET /static/admin/css/responsive.css HTTP/1.1" 304 0 249 
+2026-07-09 12:04:16,329 INFO "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0 249 
+2026-07-09 12:04:16,330 INFO "GET /static/admin/js/theme.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:16,336 INFO "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:16,392 INFO "GET /static/admin/css/login.css HTTP/1.1" 200 951 249 
+2026-07-09 12:04:22,420 INFO "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0 249 
+2026-07-09 12:04:22,465 INFO "GET /admin/ HTTP/1.1" 200 16587 249 
+2026-07-09 12:04:22,490 INFO "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0 249 
+2026-07-09 12:04:22,497 INFO "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:22,498 INFO "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:22,499 INFO "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,211 INFO "GET /admin/app_accounts/user/ HTTP/1.1" 200 21460 249 
+2026-07-09 12:04:28,232 INFO "GET /static/admin/css/changelists.css HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,243 INFO "GET /static/admin/js/core.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,243 INFO "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,244 INFO "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,245 INFO "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,250 INFO "GET /static/admin/js/actions.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,250 INFO "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,250 INFO "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,252 INFO "GET /static/admin/js/urlify.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,253 INFO "GET /static/admin/img/search.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,258 INFO "GET /static/admin/js/filters.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,281 INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3342 249 
+2026-07-09 12:04:28,298 INFO "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,298 INFO "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:28,299 INFO "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,211 INFO "GET /admin/app_accounts/user/21/change/ HTTP/1.1" 200 30638 249 
+2026-07-09 12:04:35,247 INFO "GET /static/admin/css/forms.css HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,255 INFO "GET /static/admin/js/calendar.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,256 INFO "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,257 INFO "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,258 INFO "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,259 INFO "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,264 INFO "GET /static/admin/css/widgets.css HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,268 INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3342 249 
+2026-07-09 12:04:35,269 INFO "GET /static/admin/js/change_form.js HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,371 INFO "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,373 INFO "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:35,374 INFO "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:43,646 INFO "POST /admin/app_accounts/user/21/change/ HTTP/1.1" 302 0 249 
+2026-07-09 12:04:43,670 INFO "GET /admin/app_accounts/user/ HTTP/1.1" 200 21662 249 
+2026-07-09 12:04:43,703 INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3342 249 
+2026-07-09 12:04:43,720 INFO "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0 249 
+2026-07-09 12:04:52,548 INFO "POST /login/ HTTP/1.1" 200 336 249 
+2026-07-09 12:06:31,272 INFO Watching for file changes with StatReloader 681 
+2026-07-09 12:07:16,080 INFO Watching for file changes with StatReloader 681 
