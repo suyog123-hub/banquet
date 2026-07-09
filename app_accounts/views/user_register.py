@@ -22,7 +22,7 @@ class StaffRegisterAPIView(APIView):
     throttle_classes = [RegisterViewThrottle]
     def post(self, request):
         try:
-            if not request.user.is_superuser:
+            if not request.user.is_superuser==True:
                 return forbidden_response("Only superusers can create staff", 403)
             data = request.data.copy()
             # making a copy of request.data and enforcing role as staff for organization validation
