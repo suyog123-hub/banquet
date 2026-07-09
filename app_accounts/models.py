@@ -18,17 +18,6 @@ from django.contrib.auth.base_user import BaseUserManager
 #         user.save(using=self._db)
 #         return user
 
-    def create_admin(self, creator, username, email=None, password=None, **extra_fields):
-        """
-        Create and return an admin user.
-        Only superusers can create admins.
-        """
-
-        email = self.normalize_email(email)
-        extra_fields.setdefault("role", "admin")
-        extra_fields.setdefault("created_by", creator)
-        extra_fields.setdefault("is_staff", True)
-        extra_fields.setdefault("is_superuser", True)
 
 #         user = self.model(username=username, email=email, **extra_fields)
 #         user.set_password(password)
