@@ -432,3 +432,4 @@ Traceback (most recent call last):
 TypeError: validation_error_response() missing 1 required positional argument: 'errors'
 2026-07-09 12:06:05,242 ERROR Internal Server Error: /login/ 249 
 2026-07-09 12:06:05,243 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-09 12:10:54,158 INFO Watching for file changes with StatReloader 681 
