@@ -337,3 +337,98 @@ ZeroDivisionError: division by zero
 2026-07-08 15:16:30,473 INFO Watching for file changes with StatReloader 681 
 2026-07-08 15:16:44,510 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\wedding\settings.py changed, reloading. 265 
 2026-07-08 15:17:07,654 INFO Watching for file changes with StatReloader 681 
+2026-07-09 11:56:59,548 INFO Watching for file changes with StatReloader 681 
+2026-07-09 11:57:05,068 INFO Watching for file changes with StatReloader 681 
+2026-07-09 11:58:03,623 WARNING Bad Request: /register/ 249 
+2026-07-09 11:58:03,623 WARNING "POST /register/ HTTP/1.1" 400 270 249 
+2026-07-09 11:59:02,750 WARNING Bad Request: /register/ 249 
+2026-07-09 11:59:02,750 WARNING "POST /register/ HTTP/1.1" 400 164 249 
+2026-07-09 11:59:25,286 INFO "POST /register/ HTTP/1.1" 201 266 249 
+2026-07-09 11:59:55,855 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "/Users/suyogkhadka/banquet/app_accounts/views/user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-09 11:59:55,859 ERROR Internal Server Error: /login/ 249 
+2026-07-09 11:59:55,859 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-09 12:00:38,878 INFO "GET /admin/ HTTP/1.1" 302 0 249 
+2026-07-09 12:00:38,890 INFO "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4084 249 
+2026-07-09 12:00:38,906 INFO "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538 249 
+2026-07-09 12:00:38,907 INFO "GET /static/admin/css/responsive.css HTTP/1.1" 200 16273 249 
+2026-07-09 12:00:38,907 INFO "GET /static/admin/css/login.css HTTP/1.1" 200 951 249 
+2026-07-09 12:00:38,908 INFO "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810 249 
+2026-07-09 12:00:38,908 INFO "GET /static/admin/css/base.css HTTP/1.1" 200 23100 249 
+2026-07-09 12:00:38,908 INFO "GET /static/admin/js/theme.js HTTP/1.1" 200 1653 249 
+2026-07-09 12:00:38,909 INFO "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063 249 
+2026-07-09 12:00:38,935 WARNING Not Found: /favicon.ico 249 
+2026-07-09 12:00:38,939 WARNING "GET /favicon.ico HTTP/1.1" 404 6285 249 
+2026-07-09 12:00:44,104 INFO "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0 249 
+2026-07-09 12:00:44,119 INFO "GET /admin/ HTTP/1.1" 200 14262 249 
+2026-07-09 12:00:44,123 INFO "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441 249 
+2026-07-09 12:00:44,127 INFO "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593 249 
+2026-07-09 12:00:44,127 INFO "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978 249 
+2026-07-09 12:00:49,286 INFO "GET /admin/app_accounts/user/ HTTP/1.1" 200 19226 249 
+2026-07-09 12:00:49,292 INFO "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347 249 
+2026-07-09 12:00:49,293 INFO "GET /static/admin/js/core.js HTTP/1.1" 200 6208 249 
+2026-07-09 12:00:49,293 INFO "GET /static/admin/css/changelists.css HTTP/1.1" 200 7498 249 
+2026-07-09 12:00:49,294 INFO "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777 249 
+2026-07-09 12:00:49,294 INFO "GET /static/admin/js/actions.js HTTP/1.1" 200 8077 249 
+2026-07-09 12:00:49,295 INFO "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531 249 
+2026-07-09 12:00:49,296 INFO "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887 249 
+2026-07-09 12:00:49,296 INFO "GET /static/admin/img/search.svg HTTP/1.1" 200 607 249 
+2026-07-09 12:00:49,298 INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3342 249 
+2026-07-09 12:00:49,299 INFO "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171 249 
+2026-07-09 12:00:49,299 INFO "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314 249 
+2026-07-09 12:00:49,300 INFO "GET /static/admin/js/filters.js HTTP/1.1" 200 978 249 
+2026-07-09 12:00:49,310 INFO "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593 249 
+2026-07-09 12:00:49,310 INFO "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928 249 
+2026-07-09 12:00:49,310 INFO "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1761 249 
+2026-07-09 12:00:55,418 INFO "GET /admin/app_accounts/user/4/change/ HTTP/1.1" 200 30631 249 
+2026-07-09 12:00:55,424 INFO "GET /static/admin/css/forms.css HTTP/1.1" 200 8831 249 
+2026-07-09 12:00:55,426 INFO "GET /static/admin/js/calendar.js HTTP/1.1" 200 9159 249 
+2026-07-09 12:00:55,427 INFO "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 16428 249 
+2026-07-09 12:00:55,427 INFO "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19698 249 
+2026-07-09 12:00:55,427 INFO "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530 249 
+2026-07-09 12:00:55,428 INFO "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586 249 
+2026-07-09 12:00:55,428 INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3342 249 
+2026-07-09 12:00:55,428 INFO "GET /static/admin/css/widgets.css HTTP/1.1" 200 11811 249 
+2026-07-09 12:00:55,430 INFO "GET /static/admin/js/change_form.js HTTP/1.1" 200 606 249 
+2026-07-09 12:00:55,450 INFO "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 2387 249 
+2026-07-09 12:00:55,450 INFO "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1112 249 
+2026-07-09 12:00:55,451 INFO "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 805 249 
+2026-07-09 12:05:56,305 INFO "POST /verify-email/ HTTP/1.1" 200 109 249 
+2026-07-09 12:06:01,678 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "/Users/suyogkhadka/banquet/app_accounts/views/user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-09 12:06:01,679 ERROR Internal Server Error: /login/ 249 
+2026-07-09 12:06:01,679 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-09 12:06:02,695 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "/Users/suyogkhadka/banquet/app_accounts/views/user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-09 12:06:02,695 ERROR Internal Server Error: /login/ 249 
+2026-07-09 12:06:02,696 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-09 12:06:03,820 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "/Users/suyogkhadka/banquet/app_accounts/views/user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-09 12:06:03,821 ERROR Internal Server Error: /login/ 249 
+2026-07-09 12:06:03,821 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-09 12:06:04,932 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "/Users/suyogkhadka/banquet/app_accounts/views/user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-09 12:06:04,933 ERROR Internal Server Error: /login/ 249 
+2026-07-09 12:06:04,933 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-09 12:06:05,242 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "/Users/suyogkhadka/banquet/app_accounts/views/user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-09 12:06:05,242 ERROR Internal Server Error: /login/ 249 
+2026-07-09 12:06:05,243 ERROR "POST /login/ HTTP/1.1" 500 104 249 
