@@ -23,15 +23,16 @@ class StaffRegisterAPIView(APIView):
     def post(self, request):
         try:
             if not request.user.is_superuser:
-                return forbidden_response(message="Only superusers can create staff", code=403)
+                return forbidden_response("Only superusers can create staff", 403)
             data = request.data.copy()
-            data['role']="staff"
-            serializer = UserRegistrationSerializer(data=request.data)
+            # making a copy of request.data and enforcing role as staff for organization validation
+            data['role'] = "staff"
+            serializer = UserRegistrationSerializer(data=data)
             if serializer.is_valid():
                 validated_data = serializer.validated_data
                 validated_data.pop("confirm_password")
-                user = User.objects.create_admin(creator=request.user, **serializer.validated_data)
-                # inside your view or wherever you send the mail
+                user = User.objects.create_staff(creator=request.user, **serializer.validated_data)
+                # for sending emails
                 subject = "Thankyou Mail !!!"
                 message = f"""
                 Dear {user.first_name},
@@ -52,7 +53,7 @@ class StaffRegisterAPIView(APIView):
                 thread.start()
 
                 return created_response(data={"user_id": user.id, "data": serializer.data}, message="Staff registered successfully")
-            return validation_error_response(errors=serializer.errors, code=400)
+            return validation_error_response(serializer.errors)
         except Exception as e:
             logger.error(str(e), exc_info=True)
             return server_error_response()
