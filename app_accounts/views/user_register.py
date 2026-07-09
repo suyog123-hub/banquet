@@ -67,6 +67,8 @@ class RegisterUserAPIView(APIView):
             serializer = UserRegistrationSerializer(data = request.data)
             if serializer.is_valid():
                 user = serializer.save()
+                user.is_active=False
+                user.save()
                 otp = generate_otp()
                 store_otp(user.id, otp, purpose="email_verification")
                 # for sending email in background using daemon
