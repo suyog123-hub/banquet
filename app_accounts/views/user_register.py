@@ -29,9 +29,7 @@ class StaffRegisterAPIView(APIView):
             data['role'] = "staff"
             serializer = UserRegistrationSerializer(data=data)
             if serializer.is_valid():
-                validated_data = serializer.validated_data
-                validated_data.pop("confirm_password")
-                user = User.objects.create_staff(creator=request.user, **serializer.validated_data)
+                user = serializer.save()
                 # for sending emails
                 subject = "Thankyou Mail !!!"
                 message = f"""

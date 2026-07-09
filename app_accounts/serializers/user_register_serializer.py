@@ -97,23 +97,3 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             user.save()
             
         return user
-
-
-
-
-
-        # if role == "staff":
-        #     # staff creation handled by manager
-        #     user = User.objects.create_staff(
-        #         creator=self.context["request"].user,
-        #         **validated_data,
-        #     )
-        # # elif role == "admin":
-        # #     # superuser creation (rare, usually via createsuperuser)
-        # #     user = User.objects.create_admin(**validated_data)
-        # else:
-        #     # normal user
-        #     user = User.objects.create_user(**validated_data)
-
-        # return user
-
