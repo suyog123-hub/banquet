@@ -9,7 +9,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import AuthenticationFailed, TokenError, InvalidToken
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.core.cache import cache
 
 #our Local apps
@@ -59,8 +59,7 @@ class LoginAPIView(APIView):
                 if user is not None:
                     if not user.is_active:
                         return forbidden_response(message={"detail": "Account is locked. Contact admin."})
-
-                    login(request, user)
+                    
                     tokens = self.get_tokens_for_user(user)
 
                     # Reset attempts on success
