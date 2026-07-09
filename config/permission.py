@@ -27,6 +27,7 @@ class AdminGetOrPostAll(BasePermission):
                  return Response ({
                       'message' : str(e)
                  },status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+<<<<<<< HEAD
             
 
 class SuperAdminAll_StaffGetPost_userPost(BasePermission):
@@ -55,6 +56,8 @@ class AdminStaffAll_UserGet(BasePermission):
             return False
         if request.method == "GET":
             return True
+=======
+>>>>>>> 371819d (file updated)
 
 class RoleBasedUserPermission(BasePermission):
     """
