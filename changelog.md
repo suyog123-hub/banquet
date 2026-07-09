@@ -55,8 +55,21 @@
 - create_admin changed to create_staff in user models
 
 
+
+## [1.0.4] - 2026-07-07
+
+### Added
+- user validation added 
+- Simple jwt configuration added in settings
+- 
+
+### Changed
+
+### Deprecated
+
 ### Removed
 - TestView removed
 ### Fixed
 
 ### Security
+

@@ -23,8 +23,6 @@ class UserManager(BaseUserManager):
         Create and return an admin user.
         Only superusers can create admins.
         """
-        if not creator.is_superuser:
-            raise ValueError("Only superusers can create admins")
 
         email = self.normalize_email(email)
         extra_fields.setdefault("role", "admin")
@@ -57,9 +55,8 @@ class UserManager(BaseUserManager):
         return user
 
 
-
 class User(AbstractUser, Base):
-    email = models.EmailField(unique=True)   # make email unique
+    email = models.EmailField(unique=True)   
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     profile_picture = models.ImageField(upload_to="profiles/", blank=True, null=True)
     organization = models.ForeignKey(
@@ -74,8 +71,8 @@ class User(AbstractUser, Base):
         ("staff", "Staff"),
         ("user", "User"),
     ], default="user")
-    
-    objects=UserManager()
+    # this tells django to use our own custom manager
+    objects = UserManager()
 
     def __str__(self):
         return self.username
