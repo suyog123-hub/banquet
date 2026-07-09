@@ -90,7 +90,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             )
         elif role == "admin":
             # superuser creation (rare, usually via createsuperuser)
-            user = User.objects.create_admin(**validated_data)
+            user = User.objects.create_superuser(**validated_data)
         else:
             # normal user
             user = User.objects.create_user(**validated_data)
