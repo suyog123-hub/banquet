@@ -1,0 +1,68 @@
+2026-07-09 13:01:44,977 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:04:15,868 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:04:45,154 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\config\permission.py changed, reloading. 265 
+2026-07-09 13:04:46,339 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:05:30,010 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\config\permission.py changed, reloading. 265 
+2026-07-09 13:05:31,005 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:05:33,542 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\config\permission.py changed, reloading. 265 
+2026-07-09 13:05:34,722 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:06:04,096 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:06:14,106 WARNING Forbidden: /register/ 249 
+2026-07-09 13:06:14,107 WARNING "POST /register/ HTTP/1.1" 403 45 249 
+2026-07-09 13:08:11,132 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\wedding\settings.py changed, reloading. 265 
+2026-07-09 13:08:27,136 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:08:30,556 WARNING Unauthorized: /register/ 249 
+2026-07-09 13:08:30,557 WARNING "POST /register/ HTTP/1.1" 401 172 249 
+2026-07-09 13:08:42,268 WARNING Bad Request: /register/ 249 
+2026-07-09 13:08:42,268 WARNING "POST /register/ HTTP/1.1" 400 203 249 
+2026-07-09 13:08:48,729 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\wedding\settings.py changed, reloading. 265 
+2026-07-09 13:30:36,949 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:32:31,120 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:33:04,394 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:34:01,547 WARNING Unauthorized: /contact/ 249 
+2026-07-09 13:34:01,548 WARNING "GET /contact/ HTTP/1.1" 401 58 249 
+2026-07-09 13:34:02,496 WARNING Unauthorized: /contact/ 249 
+2026-07-09 13:34:02,497 WARNING "GET /contact/ HTTP/1.1" 401 58 249 
+2026-07-09 13:34:03,280 WARNING Unauthorized: /contact/ 249 
+2026-07-09 13:34:03,280 WARNING "GET /contact/ HTTP/1.1" 401 58 249 
+2026-07-09 13:34:03,916 WARNING Unauthorized: /contact/ 249 
+2026-07-09 13:34:03,916 WARNING "GET /contact/ HTTP/1.1" 401 58 249 
+2026-07-09 13:34:05,014 WARNING Unauthorized: /contact/ 249 
+2026-07-09 13:34:05,014 WARNING "GET /contact/ HTTP/1.1" 401 58 249 
+2026-07-09 13:34:05,772 WARNING Unauthorized: /contact/ 249 
+2026-07-09 13:34:05,773 WARNING "GET /contact/ HTTP/1.1" 401 58 249 
+2026-07-09 13:34:06,813 WARNING Unauthorized: /contact/ 249 
+2026-07-09 13:34:06,814 WARNING "GET /contact/ HTTP/1.1" 401 58 249 
+2026-07-09 13:34:11,090 WARNING Bad Request: /contact/ 249 
+2026-07-09 13:34:11,090 WARNING "POST /contact/ HTTP/1.1" 400 242 249 
+2026-07-09 13:45:30,128 WARNING Unauthorized: /contact/ 249 
+2026-07-09 13:45:30,129 WARNING "GET /contact/ HTTP/1.1" 401 58 249 
+2026-07-09 13:46:05,923 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "/Users/suyogkhadka/banquet/app_accounts/views/user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-09 13:46:05,925 ERROR Internal Server Error: /login/ 249 
+2026-07-09 13:46:05,925 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-09 13:46:07,741 ERROR validation_error_response() missing 1 required positional argument: 'errors' 99 
+Traceback (most recent call last):
+  File "/Users/suyogkhadka/banquet/app_accounts/views/user_login.py", line 96, in post
+    return validation_error_response(message="Invalid request data")
+TypeError: validation_error_response() missing 1 required positional argument: 'errors'
+2026-07-09 13:46:07,742 ERROR Internal Server Error: /login/ 249 
+2026-07-09 13:46:07,742 ERROR "POST /login/ HTTP/1.1" 500 104 249 
+2026-07-09 13:46:28,990 WARNING Bad Request: /register/ 249 
+2026-07-09 13:46:28,990 WARNING "POST /register/ HTTP/1.1" 400 203 249 
+2026-07-09 13:47:27,712 WARNING Not Found: / 249 
+2026-07-09 13:47:27,712 WARNING "GET / HTTP/1.1" 404 6234 249 
+2026-07-09 13:47:27,793 WARNING Not Found: /favicon.ico 249 
+2026-07-09 13:47:27,793 WARNING "GET /favicon.ico HTTP/1.1" 404 6285 249 
+2026-07-09 13:47:47,433 INFO "GET /admin/ HTTP/1.1" 302 0 249 
+2026-07-09 13:47:47,452 INFO "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4084 249 
+2026-07-09 13:50:15,747 INFO Watching for file changes with StatReloader 681 
+2026-07-09 13:50:21,205 INFO "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4252 249 
+2026-07-09 13:50:25,689 INFO "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4252 249 
+2026-07-09 13:50:54,315 WARNING Bad Request: /verify-email/ 249 
+2026-07-09 13:50:54,315 WARNING "POST /verify-email/ HTTP/1.1" 400 107 249 
+2026-07-09 13:51:27,816 INFO Watching for file changes with StatReloader 681 
+2026-07-09 14:12:50,915 INFO Watching for file changes with StatReloader 681 
