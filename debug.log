@@ -73,3 +73,108 @@ TypeError: validation_error_response() missing 1 required positional argument: '
 2026-07-09 15:06:43,800 INFO Watching for file changes with StatReloader 681 
 2026-07-09 15:06:56,125 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\serializers\user_register_serializer.py changed, reloading. 265 
 2026-07-09 15:06:57,437 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:10:21,693 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:10:28,151 WARNING Bad Request: /register/staff/ 249 
+2026-07-09 15:10:28,152 WARNING "POST /register/staff/ HTTP/1.1" 400 203 249 
+2026-07-09 15:10:36,798 ERROR 'UserManager' object has no attribute 'create_staff' 58 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_register.py", line 34, in post
+    user = User.objects.create_staff(creator=request.user, **serializer.validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserManager' object has no attribute 'create_staff'
+2026-07-09 15:10:36,800 ERROR Internal Server Error: /register/staff/ 249 
+2026-07-09 15:10:36,800 ERROR "POST /register/staff/ HTTP/1.1" 500 104 249 
+2026-07-09 15:15:23,195 ERROR 'UserManager' object has no attribute 'create_staff' 58 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_register.py", line 34, in post
+    user = User.objects.create_staff(creator=request.user, **serializer.validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserManager' object has no attribute 'create_staff'
+2026-07-09 15:15:23,196 ERROR Internal Server Error: /register/staff/ 249 
+2026-07-09 15:15:23,196 ERROR "POST /register/staff/ HTTP/1.1" 500 104 249 
+2026-07-09 15:16:15,865 ERROR 'UserManager' object has no attribute 'create_staff' 58 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_register.py", line 34, in post
+    user = User.objects.create_staff(creator=request.user, **serializer.validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserManager' object has no attribute 'create_staff'
+2026-07-09 15:16:15,866 ERROR Internal Server Error: /register/staff/ 249 
+2026-07-09 15:16:15,866 ERROR "POST /register/staff/ HTTP/1.1" 500 104 249 
+2026-07-09 15:16:34,205 ERROR 'UserManager' object has no attribute 'create_staff' 58 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_register.py", line 34, in post
+    user = User.objects.create_staff(creator=request.user, **serializer.validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserManager' object has no attribute 'create_staff'
+2026-07-09 15:16:34,206 ERROR Internal Server Error: /register/staff/ 249 
+2026-07-09 15:16:34,207 ERROR "POST /register/staff/ HTTP/1.1" 500 104 249 
+2026-07-09 15:26:10,633 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\serializers\user_register_serializer.py changed, reloading. 265 
+2026-07-09 15:26:11,932 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:26:13,588 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\serializers\user_register_serializer.py changed, reloading. 265 
+2026-07-09 15:26:15,052 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:26:17,937 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\serializers\user_register_serializer.py changed, reloading. 265 
+2026-07-09 15:26:19,715 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:26:22,613 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\serializers\user_register_serializer.py changed, reloading. 265 
+2026-07-09 15:26:24,009 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:26:31,074 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\serializers\user_register_serializer.py changed, reloading. 265 
+2026-07-09 15:26:32,484 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:26:36,293 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\serializers\user_register_serializer.py changed, reloading. 265 
+2026-07-09 15:26:37,521 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:26:59,784 ERROR 'UserManager' object has no attribute 'create_staff' 58 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_register.py", line 34, in post
+    user = User.objects.create_staff(creator=request.user, **serializer.validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserManager' object has no attribute 'create_staff'
+2026-07-09 15:26:59,787 ERROR Internal Server Error: /register/staff/ 249 
+2026-07-09 15:26:59,788 ERROR "POST /register/staff/ HTTP/1.1" 500 104 249 
+2026-07-09 15:29:07,714 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:29:09,156 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:29:17,489 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:29:18,900 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:29:23,139 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:29:24,863 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:29:26,774 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:29:28,142 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:29:33,942 ERROR 'UserManager' object has no attribute 'create_' 58 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_register.py", line 34, in post
+    user = User.objects.create_user(creator=request.user, **serializer.validated_data)
+           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserManager' object has no attribute 'create_'. Did you mean: 'create'?
+2026-07-09 15:29:33,946 ERROR Internal Server Error: /register/staff/ 249 
+2026-07-09 15:29:33,947 ERROR "POST /register/staff/ HTTP/1.1" 500 104 249 
+2026-07-09 15:29:36,857 ERROR 'UserManager' object has no attribute 'create_' 58 
+Traceback (most recent call last):
+  File "C:\Users\Acer\OneDrive\Desktop\wms\wedding-management-system\app_accounts\views\user_register.py", line 34, in post
+    user = User.objects.create_user(creator=request.user, **serializer.validated_data)
+           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UserManager' object has no attribute 'create_'. Did you mean: 'create'?
+2026-07-09 15:29:36,859 ERROR Internal Server Error: /register/staff/ 249 
+2026-07-09 15:29:36,859 ERROR "POST /register/staff/ HTTP/1.1" 500 104 249 
+2026-07-09 15:31:21,989 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:31:23,425 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:31:28,506 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:31:30,090 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:31:33,619 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:31:35,388 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:31:39,512 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:31:40,949 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:31:46,922 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:31:48,350 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:31:50,201 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:31:51,747 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:31:55,772 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:31:57,229 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:32:01,598 INFO "POST /register/staff/ HTTP/1.1" 201 251 249 
+2026-07-09 15:32:39,129 INFO "POST /register/staff/ HTTP/1.1" 201 254 249 
+2026-07-09 15:33:48,766 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:33:50,640 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:33:53,427 WARNING Bad Request: /register/staff/ 249 
+2026-07-09 15:33:53,428 WARNING "POST /register/staff/ HTTP/1.1" 400 203 249 
+2026-07-09 15:33:59,717 WARNING Bad Request: /register/staff/ 249 
+2026-07-09 15:33:59,717 WARNING "POST /register/staff/ HTTP/1.1" 400 154 249 
+2026-07-09 15:34:05,849 INFO "POST /register/staff/ HTTP/1.1" 201 254 249 
+2026-07-09 15:34:17,550 INFO C:\Users\Acer\OneDrive\Desktop\wms\Wedding-management-system\app_accounts\views\user_register.py changed, reloading. 265 
+2026-07-09 15:34:19,176 INFO Watching for file changes with StatReloader 681 
+2026-07-09 15:34:41,279 INFO "POST /register/staff/ HTTP/1.1" 201 260 249 
