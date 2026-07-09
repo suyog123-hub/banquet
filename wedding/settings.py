@@ -50,6 +50,12 @@ INSTALLED_APPS = [
     'drf_yasg',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 # jwt settings
 SIMPLE_JWT = {
     # Access token lifetime (default is 5 minutes)
