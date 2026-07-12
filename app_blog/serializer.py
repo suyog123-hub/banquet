@@ -1,4 +1,4 @@
-from .models import BlogCategory ,Content
+from .models import BlogCategory ,Content ,Comment
 from rest_framework import serializers
 from datetime import timezone
 class CategorySerializers(serializers.ModelSerializer):
@@ -10,9 +10,6 @@ class CategorySerializers(serializers.ModelSerializer):
     def validate_title(self,value):
         if len(value) <2 :
             return serializers.ValidationError("length of title should be  more that 2")
-        
-
-
 class Contentserializer(serializers.ModelSerializer):
     class Meta:
         model = Content
@@ -20,7 +17,6 @@ class Contentserializer(serializers.ModelSerializer):
         extra_kwargs = {
             "user": {"read_only":True },
         }
-    
 
     def validate_heading(self,value):
         if len(value) <2 :
@@ -37,7 +33,18 @@ class Contentserializer(serializers.ModelSerializer):
         validated_data['created_by'] = self.context["request"].user
         return super().create(validated_data)
 
+class Commentserializer(serializers.ModelSerializer):
+    class Meta:
+        modles = Comment
+        fields = "__all__"
+        read_only_fields = ["user"]
+
+        def create(self, validated_data):
+            validated_data['user'] = self.context["request"].user
+            return super().create(validated_data)
         
+    
+    
 
     
         
