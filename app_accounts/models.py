@@ -4,56 +4,6 @@ from config.basemodel import Base
 from app_core.models import WeddingPalace
 from django.contrib.auth.base_user import BaseUserManager
 
-class UserManager(BaseUserManager):
-    def create_user(self, username, email=None, password=None, **extra_fields):
-        """
-        Create and return a normal user with role 'user'.
-        """
-        if not username:
-            raise ValueError("The username must be set")
-        email = self.normalize_email(email)
-        extra_fields.setdefault("role", "user")
-        user = self.model(username=username, email=email, **extra_fields)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
-
-    def create_admin(self, creator, username, email=None, password=None, **extra_fields):
-        """
-        Create and return an admin user.
-        Only superusers can create admins.
-        """
-
-        email = self.normalize_email(email)
-        extra_fields.setdefault("role", "admin")
-        extra_fields.setdefault("created_by", creator)
-        extra_fields.setdefault("is_staff", True)
-        extra_fields.setdefault("is_superuser", True)
-
-        user = self.model(username=username, email=email, **extra_fields)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
-
-
-    def create_staff(self, creator, username, email=None, password=None, **extra_fields):
-        """
-        Create and return a staff user.
-        Only superusers can create staff.
-        """
-        if not creator.is_superuser:
-            raise ValueError("Only superusers can create staff")
-
-        email = self.normalize_email(email)
-        extra_fields.setdefault("role", "staff")
-        extra_fields.setdefault("created_by", creator)
-        extra_fields.setdefault("is_staff", True)
-
-        user = self.model(username=username, email=email, **extra_fields)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
-
 
 class User(AbstractUser, Base):
     email = models.EmailField(unique=True)   
@@ -71,8 +21,10 @@ class User(AbstractUser, Base):
         ("staff", "Staff"),
         ("user", "User"),
     ], default="user")
-    # this tells django to use our own custom manager
-    objects = UserManager()
+    
+
+    USERNAME_FIELD = "username"
+    REQUIRED_FIELDS = ["email", "role"]
 
     def __str__(self):
         return self.username
