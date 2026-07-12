@@ -5,7 +5,6 @@ from app_core.models import WeddingPalace
 from django.contrib.auth.base_user import BaseUserManager
 
 
-
 class User(AbstractUser, Base):
     email = models.EmailField(unique=True)   
     phone_number = models.CharField(max_length=15, blank=True, null=True)
