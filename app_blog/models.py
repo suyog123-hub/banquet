@@ -3,7 +3,6 @@ from config.basemodel import Base
 from django.conf import settings
 class BlogCategory(Base):
     title=models.CharField(max_length=200)
-
     def __str__(self):
         return self.title
 class Content(Base):
@@ -16,7 +15,15 @@ class Content(Base):
 
     def __str__(self):
         return  self.heading
-    
+class Comment(Base):
+    blog = models.ForeignKey(Content,on_delete=models.CASCADE,related_name="comments")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name="comments")
+    text = models.TextField()
+    class Meta:
+        ordering = ['created_at']
+
+    def __str__(self):
+        return f"{self.user.username} comment on  - {self.blog.title}"
     
     
     

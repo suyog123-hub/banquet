@@ -41,11 +41,11 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1',include('app_accounts.urls')),
-    path('api/v1',include('app_contact.urls')),
-    path('api/v1',include('app_core.urls')),
-    path("api/v1",include('app_booking.urls')),
-    path("api/v1",include('app_blog.urls')),
+    path('api/v1/',include('app_accounts.urls')),
+    path('api/v1/',include('app_contact.urls')),
+    path('api/v1/',include('app_core.urls')),
+    path("api/v1/",include('app_booking.urls')),
+    path("api/v1/",include('app_blog.urls')),
 
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

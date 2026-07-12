@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .models import  Content , BlogCategory
+from .models import  Content , BlogCategory , Comment
 from rest_framework.views import APIView 
 from rest_framework import viewsets
 from config.permission import  AdminStaffAll_UserGet
 from config.pagination import Detailpage
-from .serializer import  Contentserializer, CategorySerializers  
+from .serializer import  Contentserializer, CategorySerializers  ,Commentserializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly
@@ -14,6 +14,29 @@ from config.response import (
     error_response,
     server_error_response,
 )
+class CommentView(APIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    def get(self, request):
+        try:
+            content = Comment.objects.all()
+            serializer = Commentserializer(content,many=True)
+            return success_response("Content fetch successfully", serializer.data, 200)
+        except Exception as e :
+            return Response ({
+                "message" : str(e)
+            },status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+    def post(self , request):
+        try:
+            serializer = Commentserializer(data = request.data)
+            if serializer.is_valid():
+                serializer.save
+                return success_response("Comment post successfully", serializer.data,201)
+        except Exception as e :
+            return Response({
+                "message":str(e)
+            },status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 class CategoryView(viewsets.ModelViewSet):
     queryset = BlogCategory.objects.all()
     serializer_class = CategorySerializers
