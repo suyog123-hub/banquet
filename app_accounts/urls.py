@@ -3,7 +3,7 @@ from  app_accounts.views import (
     RegisterUserAPIView, VerifyEmailView, 
     StaffRegisterAPIView,ResendOTPAPIView,
     LoginAPIView, RefreshTokenAPIView, 
-    LogoutAPIView,
+    LogoutAPIView, UserDeactivate,
     RequestPasswordResetAPIView,
     VerifyPasswordResetOTPAPIView,
     ResetPasswordAPIView,
@@ -18,6 +18,7 @@ urlpatterns = [
     path('login/', LoginAPIView.as_view(), name='login'),
     path('refresh-token/', RefreshTokenAPIView.as_view(), name='refresh'),
     path('logout/', LogoutAPIView.as_view(), name='logout'),
+    path('deactivate/', UserDeactivate.as_view(), name='deactivate'),
     
     # for password change or reset
     path('change-password/', ChangePasswordAPIView.as_view(), name='change-password'),

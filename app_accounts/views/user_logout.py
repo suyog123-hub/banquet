@@ -9,8 +9,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from django.contrib.auth import authenticate, login
-
+from django.shortcuts import get_object_or_404
 # local apps
 from config.response import (
     success_response,
@@ -20,9 +19,9 @@ from config.response import (
     not_found_response
 )
 from config.logging import *
-
+from app_accounts.models import User
 class LogoutAPIView(APIView):
-    authentication_classes = JWTAuthentication
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
@@ -47,3 +46,19 @@ class LogoutAPIView(APIView):
         except Exception as e:
             logger.error(str(e), exc_info=True)
             return server_error_response()
+
+class UserDeactivate(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        user_id = request.user.id
+        try:
+            updated = User.objects.filter(id=user_id).update(is_active=False)
+            if updated:
+                return success_response(message="User account deactivated successfully!")
+            return server_error_response(message="User not found.")
+        except Exception as e:
+            logger.error(f"Error deactivating user {user_id}: {str(e)}", exc_info=True)
+            return server_error_response()
+
