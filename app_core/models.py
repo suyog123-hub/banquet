@@ -19,7 +19,6 @@ class WeddingPalace(Base):
     contact_number = models.CharField(max_length=20)
     email = models.EmailField(blank=True)
     
-
     capacity = models.PositiveIntegerField(help_text="Maximum number of guests")
     parking_capacity = models.PositiveIntegerField(blank=True, null=True)
 
